@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio - Analista de Dados</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #4982ae;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #777;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+            padding-top: 80px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            margin: 15px auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            margin-top: 28px;
+        }
+        
+        .btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--dark-color);
+            font-weight: 600;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(5, 21, 36, 0.8) 0%, rgba(8, 34, 52, 0.8) 100%), url('https://cdn.prod.website-files.com/5e8bee16fa583a05cecfbb19/60b912d2d8234c0a41df45df_Uso%20de%20dados%20em%20pol%C3%ADticas%20p%C3%BAblicas%20Sigalei.jpg') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .hero-btns .btn {
+            margin: 0 10px;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--secondary-color);
+        }
+        
+        /* Sobre */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+            text-align: justify;
+            margin-bottom: 30px;
+
+            
+        }
+        
+        .about-img {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .about-img img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .profile-image {
+            width: 50%;
+            max-width: 430px;
+            height: 430px;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 5px solid white;
+        }
+
+        /* Habilidades */
+        .skills {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-item {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        /* Projetos */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-media {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .project-media img,
+        .project-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .project-media .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .project-media:hover .play-button {
+            opacity: 1;
+        }
+        
+        .project-card:hover .project-media img,
+        .project-card:hover .project-media video {
+            transform: scale(1.1);
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .project-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 10px 0;
+        }
+        
+        .project-tag {
+            background: var(--light-color);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        /* Contato */
+        .contact {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .form-group label {
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Mensagens de formulário */
+        .form-message {
+            padding: 12px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+        }
+        
+        .form-message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+        
+        .form-message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+        
+        /* Modal para mídia */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+        }
+        
+        .modal-content {
+            display: block;
+            margin: auto;
+            max-width: 90%;
+            max-height: 80%;
+            margin-top: 5%;
+        }
+        
+        .video-container {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
+            margin: 5% auto;
+        }
+        
+        .video-container iframe,
+        .video-container video {
+            width: 100%;
+            height: 450px;
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            body {
+                padding-top: 70px;
+            }
+            
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .video-container {
+                width: 95%;
+            }
+            
+            .video-container iframe,
+            .video-container video {
+                height: 250px;
+            }
+        }
+        
+        /* Menu mobile */
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: left 0.3s;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+        }
+        
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Portfólio - Dark Miranda Campos</div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#skills">Habilidades</a></li>
+                    <li><a href="#projects">Projetos</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero fade-in">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transformando dados em decisões</h1>
+                <p>Sou analista de dados com experiência em transformar grandes volumes de dados em informações acionáveis para negócios.</p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn">Ver Projetos</a>
+                    <a href="#contact" class="btn btn-outline">Entrar em Contato</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Sobre -->
+        <section id="about" class="section fade-in">
+            <h2 class="section-title">Sobre Mim</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Profissional com experiência na área logística e de inteligência comercial, atuando com foco em eficiência operacional e análise de dados.</p>
+                    <p>No setor logístico, fui responsável pela emissão de documentos fiscais (NF-e, MDF-e), controle de pesagem de veículos, organização documental, análise de indicadores de desempenho e elaboração de planilhas de controle no Excel. </p>
+                    <p>Também prestei atendimento ao cliente e suporte operacional, desenvolvendo habilidades em relacionamento e resolução de questões.</p>
+                    <p>Como Analista de Inteligência Comercial Jr no Grupo Mateus, faço o gerenciamento do estoque de 13 lojas no sul do Maranhão, acompanhando indicadores de excesso e ruptura para otimizar a disponibilidade de produtos e reduzir custos operacionais.</p>
+                    <p>Possuo conhecimentos em SQL, Power BI, Microsoft Excel, análise de dados, faturamento e rotinas administrativas, sempre buscando contribuir para a melhoria contínua dos processos e resultados.</p>
+                    <a href="Currículo - Dark Miranda Campos.pdf" class="btn">Baixar Currículo</a>
+                </div>
+                <div class="about-img">
+                    <img src="perfil.jpeg" alt="Sua Foto" class="profile-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Habilidades -->
+        <section id="skills" class="skills fade-in">
+            <h2 class="section-title">Habilidades</h2>
+            <div class="skills-container">
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>SQL</h3>
+                    <p>Experiência em escrever consultas, otimização de queries e modelagem de dados.</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Análise de Dados</h3>
+                    <p>Criação de dashboards e relatórios interativos com Power BI, Tableau e Excel.</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Python</h3>
+                    <p>Análise de dados com Pandas, NumPy e visualizações com Matplotlib e Seaborn.</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Estatística</h3>
+                    <p>Aplicação de métodos estatísticos para análise exploratória e testes de hipóteses.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projetos -->
+        <section id="projects" class="section fade-in">
+            <h2 class="section-title">Meus Projetos</h2>
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-media">
+                        <video poster="gnre.gif" onclick="openVideoModal('video3')">
+                            <source src="#" type="video/mp4">
+                        </video>
+                        <div class="play-button" onclick="openVideoModal('video3')">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Planilha de emissão de GNRE</h3>
+                        <p>Com a automação do processo de emissão de GNRE por meio de uma planilha, foi possível reduzir o tempo de 30 minutos para 2 minutos, aumentando a eficiência em 93% e gerando um ganho operacional relevante.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Excel</span>
+                            <span class="project-tag">VBA</span>
+                            <span class="project-tag">XML</span>
+                        </div>
+                        <a href="#" class="btn">Ver Detalhes</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-media">
+                        <video poster="importação de planogramas.gif" onclick="openVideoModal('video1')">
+                            <source src="#" type="video/mp4">
+                        </video>
+                        <div class="play-button" onclick="openVideoModal('video1')">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Importação de Planogramas</h3>
+                        <p>Desenvolvimento de uma planilha que possibilita a importação de um grande volume de produtos do planograma de forma rápida e eficiente, além de facilitar o monitoramento de mudanças feitas por diferentes setores.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">VBA</span>
+                            <span class="project-tag">Excel</span>
+                        </div>
+                        <a href="#" class="btn">Ver Detalhes</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-media">
+                        <video poster="machine learnig.jpeg" onclick="openVideoModal('video2')">
+                            <source src="#" type="video/mp4">
+                        </video>
+                        <div class="play-button" onclick="openVideoModal('video2')">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Projeto de Machine Learning</h3>
+                        <p>Em desenvolvimento, um programa com treinamento supervisionado para contagem automática de produtos, visando otimizar o controle de estoque e agilizar a reposição.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Machine Learning</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">YOLO</span>
+                        </div>
+                        <a href="#" class="btn">Ver Detalhes</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal para vídeos -->
+        <div id="videoModal" class="modal">
+            <span class="close" onclick="closeVideoModal()">&times;</span>
+            <div class="video-container">
+                <div id="video1" class="video-content" style="display: none;">
+                    <iframe width="100%" height="100%" src="importação de planogramas.gif" allowfullscreen></iframe>
+                </div>
+                <div id="video2" class="video-content" style="display: none;">
+                    <video width="100%" height="100%" controls>
+                        <source src="machine learnig.jpeg" type="video/mp4">
+                        Seu navegador não suporta vídeos HTML5.
+                    </video>
+                </div>
+                <div id="video3" class="video-content" style="display: none;">
+                    <video width="100%" height="100%" controls>
+                        <source src="gnre.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos HTML5.
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contato -->
+        <section id="contact" class="contact fade-in">
+            <h2 class="section-title">Entre em Contato</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>dark.miranda@hotmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>Telefone</h3>
+                            <p>(99) 99227-1233</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Localização</h3>
+                            <p>Imperatriz, Brasil</p>
+                        </div>
+                    </div>
+                </div>
+                <form id="contact-form" class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Enviar Mensagem</button>
+                    <div id="form-message" class="form-message"></div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="fade-in">
+            <div class="container">
+                <div class="logo">Portfólio - Dark Miranda Campos</div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/dark-miranda-674544254/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/Dark-Miranda" class="social-link"><i class="fab fa-github"></i></a>
+                </div>
+                <p class="copyright">&copy; 2025 Portfólio - Dark Miranda Campos. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Smooth scrolling para links de navegação
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Fechar menu mobile após clicar em um link
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+        
+        // Menu mobile
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                
+                // Alterar ícone do botão
+                const icon = mobileMenuBtn.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        }
+        
+        // Form submission com Formspree
+        const contactForm = document.getElementById('contact-form');
+        const formMessage = document.getElementById('form-message');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Desativar o botão para evitar múltiplos envios
+                const submitBtn = this.querySelector('button[type="submit"]');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Enviando...';
+                
+                // Coletar os dados do formulário
+                const formData = new FormData(this);
+                
+                // Enviar os dados para o Formspree
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Sucesso
+                        formMessage.textContent = 'Mensagem enviada com sucesso! Entrarei em contato em breve.';
+                        formMessage.classList.remove('error');
+                        formMessage.classList.add('success');
+                        contactForm.reset();
+                    } else {
+                        // Erro
+                        throw new Error('Algo deu errado. Tente novamente.');
+                    }
+                })
+                .catch(error => {
+                    formMessage.textContent = error.message;
+                    formMessage.classList.remove('success');
+                    formMessage.classList.add('error');
+                })
+                .finally(() => {
+                    // Reativar o botão
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Enviar Mensagem';
+                    
+                    // Esconder a mensagem após 5 segundos
+                    setTimeout(() => {
+                        formMessage.style.display = 'none';
+                    }, 5000);
+                });
+            });
+        }
+        
+        // Modal para vídeos
+        function openVideoModal(videoId) {
+            const modal = document.getElementById("videoModal");
+            const videoContents = document.querySelectorAll(".video-content");
+            
+            // Esconder todos os conteúdos de vídeo primeiro
+            videoContents.forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            // Mostrar o vídeo específico
+            const specificVideo = document.getElementById(videoId);
+            if (specificVideo) {
+                specificVideo.style.display = 'block';
+            }
+            
+            modal.style.display = "block";
+        }
+        
+        function closeVideoModal() {
+            const modal = document.getElementById("videoModal");
+            modal.style.display = "none";
+            
+            // Pausar todos os vídeos quando o modal fechar
+            const iframes = document.querySelectorAll('iframe');
+            iframes.forEach(iframe => {
+                const src = iframe.src;
+                iframe.src = src; // Recarregar o iframe para parar o vídeo
+            });
+            
+            const videos = document.querySelectorAll('video');
+            videos.forEach(video => {
+                video.pause();
+            });
+        }
+        
+        // Fechar modal clicando fora do conteúdo
+        window.onclick = function(event) {
+            const modal = document.getElementById("videoModal");
+            if (event.target == modal) {
+                closeVideoModal();
+            }
+        }
+        
+        // Animações ao scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.section, .skills, .contact, footer').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
